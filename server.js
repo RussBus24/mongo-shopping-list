@@ -71,9 +71,9 @@ app.put('/items/:name', function(req, res) {
     });
 });
 
-app.delete('/items/:name', function(req, res) {
+app.delete('/items/:id', function(req, res) {
     Item.remove({
-        name: req.params.name
+        _id: req.params.id
     }, function(err, item) {
         if (err) {
             return res.status(500).json({
