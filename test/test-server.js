@@ -72,13 +72,16 @@ describe('Shopping List', function() {
         
     it('should delete an item on DELETE', function(done) {
         chai.request(app)
-            .delete('/items/:id')
-            .send({'name': 'Kale'})
-            .end(function(err, res) {
+            .get('/items').end(function(err, res) {
+                var item = res.body[0]
+                chai.request(app)
+                .delete('/items/' + item._id)
+                .end(function(err, res) {
                 should.equal(err, null);
                 res.should.have.status(200);
                 res.should.be.json;
                 done();
+                });
             });
     });
 
