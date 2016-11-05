@@ -8,3 +8,9 @@ addons:
     - mongodb-3.2-precise
     packages:
     - mongodb-org-server
+deploy:
+  provider: heroku
+  api_key: b345c205-d0dc-46df-abd2-897117ba212f
+  app: pure-taiga-39096
+  on:
+    repo: RussBus24/mongo-shopping-list
